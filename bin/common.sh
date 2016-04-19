@@ -42,8 +42,7 @@ download_play_official() {
 
   status=$(curl --retry 3 --silent --head -w %{http_code} -L ${playUrl} -o /dev/null)
   if [ "$status" != "200" ]; then
-    error "Could not locate: ${playUrl}
-Please check that the version ${playVersion} is correct in your conf/dependencies.yml"
+    error "Could not locate: ${playUrl} Please check that the version ${playVersion} is correct in your conf/dependencies.yml"
     exit 1
   else
     echo "Downloading ${playZipFile} from https://downloads.typesafe.com" | indent
